@@ -30,7 +30,7 @@ export const About = () => {
   ];
 
   return (
-    <section className="about">
+    <section className="about" id="about">
       <img className="about__image" src={aboutImg} />
 
       <div className="about__content">

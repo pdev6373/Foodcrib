@@ -39,10 +39,6 @@ li {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: $white;
@@ -181,23 +177,21 @@ html {
       // }
 
       &__items {
-        padding-block: 3px;
+        @include flex();
+        font-size: 1.7rem;
+        text-transform: capitalize;
+        color: $light-color;
+        min-height: 30px;
+        cursor: pointer;
 
-        &__link {
-          font-size: 1.7rem;
-          text-transform: capitalize;
-          color: $light-color;
-          padding-block: 3px;
+        // @media (max-width: 1060px) {
+        //   font-size: 2rem;
+        //   margin: 2em;
+        // }
 
-          // @media (max-width: 1060px) {
-          //   font-size: 2rem;
-          //   margin: 2em;
-          // }
-
-          &:hover {
-            border-bottom: 2px solid $green;
-            transition: 0.12s linear;
-          }
+        &:hover {
+          border-bottom: 2px solid $green;
+          transition: 0.12s linear;
         }
       }
     }

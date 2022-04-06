@@ -7,7 +7,7 @@ export const Menu = () => {
   const { menuItems } = useContext(DataContext);
 
   return (
-    <section className="menu">
+    <section className="menu" id="menu">
       <SectionHeader text="Available Foods" />
       <div className="menu__list">
         {menuItems.map((menuItem) => (

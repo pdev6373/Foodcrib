@@ -38,7 +38,7 @@ export const Blog = () => {
     },
   ];
   return (
-    <section className="blog">
+    <section className="blog" id="blog">
       <SectionHeader text="Our Blogs" />
 
       <div className="blog__posts">

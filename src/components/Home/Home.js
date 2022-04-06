@@ -6,7 +6,7 @@ import img from "../../img/xyz.png";
 
 export const Home = () => {
   return (
-    <section className="home">
+    <section className="home" id='home'>
       <HomeText />
       <HomeImg img={img} />
     </section>

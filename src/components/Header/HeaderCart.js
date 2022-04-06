@@ -40,7 +40,12 @@ export const HeaderCart = () => {
   };
 
   return (
-    <button onClick={handleToggle} className="header__btns">
+    <button
+      onClick={handleToggle}
+      className={
+        viewCart ? "header__btns header__btns--current" : "header__btns"
+      }
+    >
       <div className="header__btns__items-no">{cartItems.length}</div>
       <FaShoppingBag />
     </button>

@@ -1,6 +1,5 @@
 import React from "react";
 import { FaCalendar } from "react-icons/fa";
-import { BlogPostIcon } from "./BlogPostIcon";
 
 export const BlogPost = ({ title, text, img, date, link }) => {
   return (
@@ -19,13 +18,8 @@ export const BlogPost = ({ title, text, img, date, link }) => {
 
       <div className="blog__post__content">
         <h3 className="blog__post__content__title">{title}</h3>
-        <div className="blog__post__content__tags">
-          <BlogPostIcon food="food" />
-          <BlogPostIcon food="burger" />
-          <BlogPostIcon food="pizza" />
-        </div>
         <p className="blog__post__content__text">{text}</p>
-        <a className="blog__post__content__link" src={link}>
+        <a className="blog__post__content__link" target="_blank" href={link}>
           Read More
         </a>
       </div>

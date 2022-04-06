@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DataProvider } from "./components/Context/DataContext";
-// import { BrowserRouter } from "react-router";
 
 import { Header } from "./components/Header/Header";
 import { Form } from "./components/Form/Form";
@@ -9,16 +8,16 @@ import { SearchedItems } from "./components/SearchedItems/SearchedItems";
 import { AllPages } from "./components/AllPages";
 
 function App() {
+  useEffect(() => window.scrollTo(0, 0), [null]);
+
   return (
     <div className="container">
       <DataProvider>
-        {/* <BrowserRouter> */}
         <Header />
         <Form />
         <Cart />
         <SearchedItems />
         <AllPages />
-        {/* </BrowserRouter> */}
       </DataProvider>
     </div>
   );

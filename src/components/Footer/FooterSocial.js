@@ -9,7 +9,7 @@ import {
 export const FooterSocial = () => {
   let links = [<FaFacebookF />, <FaTwitter />, <FaLinkedin />, <FaPinterest />];
   return (
-    <div className="footer__social" id="contact">
+    <div className="footer__social">
       {links.map((link) => (
         <button className="footer__social__links">{link}</button>
       ))}

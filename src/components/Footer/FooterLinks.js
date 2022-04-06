@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 export const FooterLinks = ({ header, links, needIcon }) => {
   return (
@@ -15,10 +16,24 @@ export const FooterLinks = ({ header, links, needIcon }) => {
                   fontSize: "1.4rem",
                 }}
               />
-              <a className="footer__links__link__link-wrapper__link">{link}</a>
+
+              <Link
+                spy={true}
+                to={link.link}
+                smooth={true}
+                offset={link.offset}
+                activeClass="active"
+                duration={100}
+              >
+                <span className="footer__links__link__link-wrapper__link">
+                  {link.link}
+                </span>
+              </Link>
             </div>
           ) : (
-            <a className="footer__links__link__link-wrapper__link">{link}</a>
+            <a className="footer__links__link__link-wrapper__link">
+              {link.link}
+            </a>
           )
         )}
       </div>

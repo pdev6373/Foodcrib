@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { CartItem } from "./CartItem";
 import { Button } from "../Button";
@@ -6,6 +6,8 @@ import { SectionHeader } from "../SectionHeader";
 
 export const Cart = () => {
   const { viewCart, cartItems, totalAmount } = useContext(DataContext);
+
+  useEffect(() => window.scrollTo(0, 0), [viewCart]);
 
   const returnValue =
     cartItems.length == 0 ? (

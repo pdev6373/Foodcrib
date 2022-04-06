@@ -26,7 +26,12 @@ export const HeaderUser = () => {
   };
 
   return (
-    <button onClick={handleToggle} className="header__btns">
+    <button
+      onClick={handleToggle}
+      className={
+        viewForm ? "header__btns header__btns--current" : "header__btns"
+      }
+    >
       <FaUserAlt />
     </button>
   );

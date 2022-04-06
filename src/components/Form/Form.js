@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { FormBody } from "./FormBody";
 import { FormHeader } from "./FormHeader";
 
 export const Form = () => {
   const { viewForm, toggleFormClass } = useContext(DataContext);
+
+  useEffect(() => window.scrollTo(0, 0), [viewForm]);
 
   const formBodyDetails = [
     {
@@ -33,7 +35,7 @@ export const Form = () => {
       switchHidden: true,
       switchClass: "switch__container switch__container--one",
     },
-    
+
     {
       title: "Hello Friend !",
       description: "Enter your personal details and start your journey with us",

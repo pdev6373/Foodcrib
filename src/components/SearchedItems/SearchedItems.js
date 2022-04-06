@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { SectionHeader } from "../SectionHeader";
 import { MenuItems } from "../Menu/MenuItems";
@@ -14,6 +14,8 @@ export const SearchedItems = () => {
     setViewForm,
     setViewCart,
   } = useContext(DataContext);
+
+  useEffect(() => window.scrollTo(0, 0), [viewSearchedItem]);
 
   const handleSearch = () => {
     let filteredItems;

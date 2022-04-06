@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../Button";
+import { Link } from "react-scroll";
 
 export const HomeText = () => {
   return (
@@ -11,7 +12,16 @@ export const HomeText = () => {
         includes pizza, coca-cola, milk, hamburger, fried rice and a lot more.
         patronize us today and get the best foods at the best price
       </p>
-      <Button text="Our menu" />
+      <Link
+        spy={true}
+        to="menu"
+        smooth={true}
+        offset={-150}
+        activeClass="active"
+        duration={100}
+      >
+        <Button text="Our menu" />
+      </Link>
     </div>
   );
 };

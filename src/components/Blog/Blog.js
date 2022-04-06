@@ -50,6 +50,7 @@ export const Blog = () => {
             img={blogPost.img}
             date={blogPost.date}
             link={blogPost.link}
+            tag={blogPost.tag}
           />
         ))}
       </div>

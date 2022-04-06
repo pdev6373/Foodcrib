@@ -31,23 +31,26 @@ export const About = () => {
 
   return (
     <section className="about" id="about">
-      <img className="about__image" src={aboutImg} />
+      <SectionHeader text="About us" />
 
-      <div className="about__content">
-        <SectionHeader text="About us" />
-        <p className="about__content__text">
-          we are a fast growing food resturant that provides quality foods all
-          over the world, we are a remote based company that offers a 24/7
-          services to our customers and try our best to provide the best
-          services to them
-        </p>
-        <Button text="Read More" />
-        <h3 className="about__content__heading">why choose us</h3>
+      <div className="about__body">
+        <img className="about__body__image" src={aboutImg} />
 
-        <div className="about__content__services">
-          {services.map((service) => (
-            <AboutServices text={service.text} img={service.img} />
-          ))}
+        <div className="about__body__content">
+          <p className="about__body__content__text">
+            we are a fast growing food resturant that provides quality foods all
+            over the world, we are a remote based company that offers a 24/7
+            services to our customers and try our best to provide the best
+            services to them.
+          </p>
+          <Button text="Read More" />
+          <h3 className="about__body__content__heading">why choose us</h3>
+
+          <div className="about__body__content__services">
+            {services.map((service) => (
+              <AboutServices text={service.text} img={service.img} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

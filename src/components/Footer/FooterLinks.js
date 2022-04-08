@@ -11,10 +11,7 @@ export const FooterLinks = ({ header, links, needIcon }) => {
           needIcon ? (
             <div className="footer-links">
               <FaArrowRight
-                style={{
-                  color: "#64af76",
-                  fontSize: "1.4rem",
-                }}
+                className="footer-links__icon"
               />
 
               <Link

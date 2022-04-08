@@ -9,6 +9,7 @@ export const HeaderCart = () => {
     setViewForm,
     setViewAllPages,
     setViewSearchedItem,
+    setViewMenu,
     cartItems,
     setTotalAmount,
   } = useContext(DataContext);
@@ -26,17 +27,14 @@ export const HeaderCart = () => {
   }, []);
 
   const handleToggle = () => {
-    if (viewCart) {
-      setViewAllPages(true);
-      setViewCart(false);
-      setViewForm(false);
-      setViewSearchedItem(false);
-    } else {
-      setViewAllPages(false);
-      setViewCart(true);
-      setViewForm(false);
-      setViewSearchedItem(false);
-    }
+    setViewAllPages(false);
+    setViewMenu(false);
+    setViewCart(false);
+    setViewForm(false);
+    setViewSearchedItem(false);
+
+    if (viewCart) setViewAllPages(true);
+    else setViewCart(true);
   };
 
   return (

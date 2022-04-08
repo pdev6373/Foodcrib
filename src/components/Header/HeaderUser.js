@@ -9,20 +9,18 @@ export const HeaderUser = () => {
     setViewCart,
     setViewAllPages,
     setViewSearchedItem,
+    setViewMenu,
   } = useContext(DataContext);
 
   const handleToggle = () => {
-    if (viewForm) {
-      setViewAllPages(true);
-      setViewForm(false);
-      setViewCart(false);
-      setViewSearchedItem(false);
-    } else {
-      setViewAllPages(false);
-      setViewForm(true);
-      setViewCart(false);
-      setViewSearchedItem(false);
-    }
+    setViewAllPages(false);
+    setViewMenu(false);
+    setViewCart(false);
+    setViewForm(false);
+    setViewSearchedItem(false);
+
+    if (viewForm) setViewAllPages(true);
+    else setViewForm(true);
   };
 
   return (

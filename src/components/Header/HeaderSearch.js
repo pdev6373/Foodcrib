@@ -19,6 +19,16 @@ export const HeaderSearch = () => {
 
   const handleToggle = (e) => {
     e.preventDefault();
+
+    // setViewAllPages(false);
+    // setViewMenu(false);
+    // setViewCart(false);
+    // setViewForm(false);
+    // setViewSearchedItem(false);
+
+    // if (viewForm) setViewAllPages(true);
+    // else setViewAllPages(true);
+
     setViewMenu(false);
     setViewSearchInput(!viewSearchInput);
   };
@@ -33,6 +43,7 @@ export const HeaderSearch = () => {
     setViewAllPages(false);
     setViewForm(false);
     setViewCart(false);
+    setViewMenu(false);
   };
 
   let search =

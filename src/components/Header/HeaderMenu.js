@@ -3,18 +3,30 @@ import { DataContext } from "../Context/DataContext";
 import { FaBars } from "react-icons/fa";
 
 export const HeaderMenu = () => {
-  const { viewMenu, setViewMenu, setViewSearchInput } = useContext(DataContext);
+  const {
+    viewMenu,
+    setViewMenu,
+    setViewAllPages,
+    setViewCart,
+    setViewForm,
+    setViewSearchedItem,
+  } = useContext(DataContext);
 
   const handleToggle = () => {
-    setViewSearchInput(false);
-    setViewMenu(!viewMenu);
+    setViewAllPages(true);
+    setViewMenu(false);
+    setViewCart(false);
+    setViewForm(false);
+    setViewSearchedItem(false);
+
+    viewMenu ? setViewMenu(false) : setViewMenu(true);
   };
 
   return (
     <button
       className={
         viewMenu
-          ? "header__btns header__btns--invisible-large current"
+          ? "header__btns header__btns--invisible-large header__btns header__btns--current"
           : "header__btns header__btns--invisible-large"
       }
       onClick={handleToggle}

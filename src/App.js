@@ -4,6 +4,7 @@ import { DataProvider } from "./components/Context/DataContext";
 import { Header } from "./components/Header/Header";
 import { Form } from "./components/Form/Form";
 import { Cart } from "./components/Cart/Cart";
+import { HeaderNavMobile } from "./components/Header/HeaderNavMobile";
 import { SearchedItems } from "./components/SearchedItems/SearchedItems";
 import { AllPages } from "./components/AllPages";
 
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Form />
         <Cart />
+        <HeaderNavMobile />
         <SearchedItems />
         <AllPages />
       </DataProvider>

@@ -9,6 +9,12 @@ $light-bg: #f7f7f7;
 $border: 0.1em solid rgba(0, 0, 0, 0.2);
 $box-shadow: 0 1em 1em rgba(0, 0, 0, 0.05);
 
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2.5em;
+}
+
 @mixin flex(
   $flex-direction: row,
   $justify-content: center,
@@ -42,6 +48,7 @@ li {
 body {
   font-family: "Poppins", sans-serif;
   background-color: $white;
+  min-width: 222px;
 }
 
 html {
@@ -61,6 +68,10 @@ html {
 
   @media (max-width: 920px) {
     font-size: 3rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 2.5rem;
   }
 }
 
@@ -118,6 +129,28 @@ html {
   display: none;
 }
 
+.header,
+.home,
+.menu,
+.about,
+.blog,
+.footer {
+  @media (max-width: 930px) {
+    padding-inline: 3rem;
+  }
+
+  @media (max-width: 430px) {
+    padding-inline: 2rem;
+  }
+
+  @media (max-width: 315px) {
+    padding-inline: 1rem;
+  }
+}
+
+/* ###############
+HEADER
+############### */
 .header {
   @include flex(row, space-between);
   position: sticky;
@@ -136,14 +169,19 @@ html {
   //   padding-inline: 2rem;
   // }
 
-  // @media (max-width: 370px) {
-  //   flex-direction: column;
-  //   gap: 2em;
-  //   padding-block: 1.2em;
-  // }
+  @media (max-width: 400px) {
+    flex-direction: column;
+    gap: 2em;
+    padding-block: 1.2em;
+  }
 
   .active {
     border-bottom: 2px solid $green;
+
+    @media (max-width: 1185px) {
+      border-bottom: none;
+      color: $green !important; // not working
+    }
   }
 
   &__logo {
@@ -156,29 +194,13 @@ html {
   &__nav {
     margin-inline: 7em auto;
 
-    // @media (max-width: 1060px) {
-    //   position: absolute;
-    //   top: 90px;
-    //   left: 0;
-    //   right: 0;
-    //   margin-inline: 0;
-    //   background-color: $white;
-    //   border-block: $border;
-    //   width: 100%;
-    // }
-
-    // @media (max-width: 370px) {
-    //   top: 120px;
-    // }
+    @media (max-width: 1240px) {
+      margin-left: 4em;
+    }
 
     &__list {
       @include flex(row, flex-start, flex-start);
       gap: 3em;
-
-      // @media (max-width: 1060px) {
-      //   padding-block: 3em;
-      //   flex-direction: column;
-      // }
 
       &__items {
         @include flex();
@@ -187,11 +209,6 @@ html {
         color: $light-color;
         min-height: 30px;
         cursor: pointer;
-
-        // @media (max-width: 1060px) {
-        //   font-size: 2rem;
-        //   margin: 2em;
-        // }
 
         &:hover {
           border-bottom: 2px solid $green;
@@ -204,6 +221,10 @@ html {
   .header__right {
     @include flex();
     gap: 2em;
+
+    @media (max-width: 240px) {
+      gap: 1.5em;
+    }
 
     // @media (max-width: 370px) {
     //   width: 100%;
@@ -232,8 +253,26 @@ html {
     border-radius: 0.5em;
     outline: none;
     cursor: pointer;
-    box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+    box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
     background-color: $light-bg;
+
+    @media (max-width: 700px) {
+      height: 3em;
+      width: 3em;
+      line-height: 3em;
+    }
+
+    @media (max-width: 400px) {
+      height: 3.2em;
+      width: 3.2em;
+      line-height: 3.2em;
+    }
+
+    @media (max-width: 260px) {
+      height: 3em;
+      width: 3em;
+      line-height: 3em;
+    }
 
     &--current {
       background-color: $green;
@@ -255,14 +294,8 @@ html {
       border-radius: 50%;
       background: $green;
       color: $black;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
     }
-
-    // @media (max-width: 700px) {
-    //   height: 3em;
-    //   width: 3em;
-    //   line-height: 3em;
-    // }
 
     &:hover {
       color: $white;
@@ -272,13 +305,13 @@ html {
     &--invisible-large {
       display: none;
 
-      // @media (max-width: 1060px) {
-      //   @include flex();
-      // }
+      @media (max-width: 1185px) {
+        @include flex();
+      }
 
-      // @media (max-width: 700px) {
-      //   order: -1;
-      // }
+      @media (max-width: 700px) {
+        order: -1;
+      }
     }
   }
 
@@ -289,15 +322,15 @@ html {
     min-width: 400px;
     overflow: hidden;
     box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
-    margin-right: 3em;
+    margin-right: 2em;
 
-    // @media (max-width: 1180px) {
-    //   min-width: 300px;
-    // }
+    @media (max-width: 1240px) {
+      margin-right: 0;
+    }
 
-    // @media (max-width: 1180px) {
-    //   margin-right: 0;
-    // }
+    @media (max-width: 860px) {
+      min-width: 300px;
+    }
 
     &__input {
       font-size: 1.6rem;
@@ -327,16 +360,27 @@ html {
       border: none;
       outline: none;
       cursor: pointer;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
       background-color: $light-bg;
-      border-bottom-right-radius: 50%;
 
-      // @media (max-width: 700px) {
-      //   height: 3em;
-      //   width: 3em;
-      //   line-height: 3em;
-      //   border-radius: 0.5em;
-      // }
+      @media (max-width: 700px) {
+        height: 3em;
+        width: 3em;
+        line-height: 3em;
+        border-radius: 0.5em;
+      }
+
+      @media (max-width: 400px) {
+        height: 3.2em;
+        width: 3.2em;
+        line-height: 3.2em;
+      }
+
+      @media (max-width: 260px) {
+        height: 3em;
+        width: 3em;
+        line-height: 3em;
+      }
 
       &:hover {
         color: $white;
@@ -347,9 +391,9 @@ html {
         font-size: 2rem;
         transform: rotate(-90deg);
 
-        // @media (max-width: 700px) {
-        //   transform: rotate(0);
-        // }
+        @media (max-width: 700px) {
+          transform: rotate(0);
+        }
       }
     }
   }
@@ -363,7 +407,7 @@ html {
     border-radius: 100px;
     background-color: $light-bg;
     overflow: hidden;
-    box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+    box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
 
     // @media (max-width: 1060px) {
     //   left: 5rem;
@@ -410,6 +454,63 @@ html {
       &__icon {
         font-size: 2rem;
         transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+/* ###############
+HEADER NAV MOBILE
+############### */
+.header__nav__mobile {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  z-index: 5;
+
+  // @media (max-width: 370px) {
+  //   top: 120px;
+  // }
+
+  &__content {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $white;
+    box-shadow: 8px 8px 8px #d1d9e6, -8px -8px 8px #f9f9f9;
+    border-radius: 1.5em;
+    overflow: hidden;
+    color: $light-color;
+    border: 2px solid rgba(102, 102, 102, 0.196);
+    width: 90%;
+
+    .header__nav__list {
+      @include flex(column, flex-start);
+      gap: 0;
+
+      &__link {
+        width: 100%;
+      }
+
+      &__items {
+        @include flex();
+        font-size: 1.7rem;
+        padding-block: 1em;
+        text-transform: capitalize;
+        color: $light-color;
+        min-height: 30px;
+        cursor: pointer;
+        width: 100%;
+        border-bottom: 2px solid rgba(102, 102, 102, 0.196);
+
+        &:hover {
+          border-bottom: 2px solid $green;
+          transition: 0.12s linear;
+        }
       }
     }
   }
@@ -688,13 +789,14 @@ CART
 .cart-wrapper {
   @include flex(column, flex-start, flex-start);
   gap: 2em;
-  position: sticky;
+  position: sticky; ///////////
   top: 10em;
   margin-block: 2em 3em;
   width: 90%;
-  // min-width: 1000px;
   background-color: $white;
-  border-radius: 1.5em;
+  overflow: hidden;
+  border-radius: 1.2em;
+  color: $light-color;
 
   &--none {
     position: fixed;
@@ -727,7 +829,7 @@ CART
     @include flex(column);
     border: 2px solid rgba(102, 102, 102, 0.196);
     background-color: $white;
-    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+    box-shadow: 8px 8px 8px #d1d9e6, -8px -8px 8px #f9f9f9;
     color: $light-color;
     overflow: hidden;
     width: 100%;
@@ -837,10 +939,10 @@ SearchedItems
 ############### */
 .searched-items {
   position: relative;
-  width: 96%;
+  width: 90%;
   background-color: $white;
   box-shadow: 8px 8px 8px #d1d9e6, -8px -8px 8px #f9f9f9;
-  border-radius: 1.2em;
+  border-radius: 1.5em;
   overflow: hidden;
   color: $light-color;
   margin-block: 2em 3em;
@@ -943,6 +1045,19 @@ HOME
   width: 100%;
   padding: 0 5% 15em;
 
+  @media (max-width: 1080px) {
+    margin-top: 2em;
+  }
+
+  @media (max-width: 1030px) {
+    margin-top: 3.6em;
+  }
+
+  @media (max-width: 930px) {
+    flex-direction: column-reverse;
+    margin-top: 0;
+  }
+
   // @media (max-width: 1060px) {
   //   padding-inline: 5rem;
   // }
@@ -953,9 +1068,16 @@ HOME
 
   & > * {
     width: 50%;
+
+    @media (max-width: 930px) {
+      width: 100%;
+    }
   }
 
   &__text {
+    @media (max-width: 930px) {
+      margin-top: 4em;
+    }
     span {
       font-size: 2rem;
       color: $green;
@@ -967,10 +1089,18 @@ HOME
       color: $black;
       padding-top: 0.5em;
       text-transform: capitalize;
+
+      @media (max-width: 1080px) {
+        font-size: 3.5rem;
+      }
+
+      @media (max-width: 930px) {
+        font-size: 3rem;
+      }
     }
 
     p {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: $light-color;
       line-height: 2;
       padding-block: 1em;
@@ -979,6 +1109,10 @@ HOME
     button {
       font-size: 1.7rem;
       text-transform: none;
+
+      @media (max-width: 1080px) {
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -997,32 +1131,22 @@ MENU
   width: 100%;
   padding: 0 3% 18em;
 
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
-
   &__list {
-    @include flex(row, flex-start, flex-start);
-    flex-wrap: wrap;
+    @include grid(26em);
     width: 100%;
+
+    @media (max-width: 400px) {
+      @include flex(column, flex-start);
+    }
 
     .menu__items {
       @include flex(column, flex-start);
       padding-bottom: 4em;
-      // width: 23%;
-      min-width: 140px;
-      min-height: 460px;
       text-align: center;
       background-color: $white;
       border-radius: 1em;
       overflow: hidden;
       box-shadow: 6px 6px 6px #d1d9e6, -6px -6px 6px #f9f9f9;
-      margin-inline: 1%;
-      margin-bottom: 5em;
 
       &__img {
         float: left;
@@ -1043,9 +1167,13 @@ MENU
       }
 
       &__price {
-        padding: 1.75em;
+        margin: 1.75em;
         @include flex();
         gap: 1em;
+
+        & > * {
+          height: 100%;
+        }
 
         &__current {
           font-size: 1.6rem;
@@ -1083,8 +1211,18 @@ ABOUT
     @include flex();
     gap: 3em;
 
+    @media (max-width: 930px) {
+      flex-direction: column;
+      // margin-top: 0;
+      // padding-inline: 5rem;
+    }
+
     & > * {
       width: 50%;
+
+      @media (max-width: 930px) {
+        width: 100%;
+      }
     }
 
     &__content {
@@ -1103,6 +1241,11 @@ ABOUT
         line-height: 1.5;
         color: $light-color;
         margin-bottom: 0.8em;
+
+        @media (max-width: 930px) {
+          font-size: 1.7rem;
+          line-height: 1.6;
+        }
       }
 
       .button {
@@ -1112,6 +1255,11 @@ ABOUT
       &__services {
         @include flex(row, space-between, flex-start);
         flex-wrap: wrap;
+        width: 100%;
+
+        // @media (max-width: 370px) {
+        //   flex-direction: column;
+        // }
 
         &__details {
           @include flex();
@@ -1122,6 +1270,14 @@ ABOUT
           margin-bottom: 2em;
           border-radius: 6px;
           box-shadow: inset 2px 2px 3px #dadada, inset -2px -2px 3px #dadada;
+
+          @media (max-width: 520px) {
+            padding-inline: 2.5em;
+          }
+
+          @media (max-width: 480px) {
+            width: 100%;
+          }
 
           &__text {
             font-size: 1.5rem;
@@ -1151,21 +1307,26 @@ BLOG
   // }
 
   &__posts {
-    @include flex(row, center, stretch);
-    flex-wrap: wrap;
-    gap: 2em;
+    // @include flex(row, center, stretch);
+    @include grid(27em);
+    width: 100%;
+    // flex-wrap: wrap;
+    // gap: 2em;
+
+    @media (max-width: 400px) {
+      @include flex(column, flex-start);
+    }
 
     .blog__post {
       background-color: $light-bg;
       border-radius: 10px;
       overflow: hidden;
-      max-width: 300px;
       // padding: 1em;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      // box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: 6px 6px 6px #d1d9e6, -6px -6px 6px #f9f9f9;
 
       &__img-wrapper {
         position: relative;
-        max-width: 300px;
         height: 300px;
         margin-bottom: 2em;
         overflow: hidden;
@@ -1258,6 +1419,7 @@ FOOTER
     gap: 4em;
     text-align: center;
     margin-bottom: 6em;
+    width: 100%;
 
     &__form {
       @include flex(row, space-between, stretch);
@@ -1266,17 +1428,33 @@ FOOTER
       // max-width: 700px;
       // margin: 2em auto 1em;
       background-color: $light-bg;
-      min-width: 400px;
+      // min-width: 400px;
       overflow: hidden;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
       // margin-right: 3em;
 
       @media (max-width: 1120px) {
-        width: 60%;
+        width: 70%;
       }
 
-      @media (max-width: 820px) {
-        width: 70%;
+      @media (max-width: 930px) {
+        width: 90%;
+      }
+
+      @media (max-width: 670px) {
+        width: 100%;
+      }
+
+      @media (max-width: 315px) {
+        flex-direction: column;
+        gap: 1em;
+        border-radius: 20px;
+        background: $white;
+        box-shadow: none;
+      }
+
+      @media (max-width: 215px) {
+        border-radius: 0;
       }
 
       // @media (max-width: 1180px) {
@@ -1292,8 +1470,22 @@ FOOTER
         outline: none;
         padding-left: 1.5em;
         color: $light-color;
-        box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+        box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
         background-color: $light-bg;
+
+        @media (max-width: 350px) {
+          padding-left: 0.8em;
+        }
+
+        @media (max-width: 315px) {
+          height: 3em;
+          border-radius: 10px 0 0 10px;
+        }
+
+        @media (max-width: 215px) {
+          font-size: 1.4rem;
+          border-radius: 0;
+        }
 
         &::placeholder {
           text-transform: capitalize;
@@ -1311,7 +1503,24 @@ FOOTER
         border: none;
         outline: none;
         cursor: pointer;
-        box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+        box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
+
+        @media (max-width: 670px) {
+          padding-inline: 1.1em;
+        }
+
+        @media (max-width: 500px) {
+          height: 2.8em;
+        }
+
+        @media (max-width: 350px) {
+          font-size: 1.4rem;
+        }
+
+        @media (max-width: 315px) {
+          font-size: 1.6rem;
+          letter-spacing: 0.1em;
+        }
 
         // @media (max-width: 700px) {
         //   height: 3em;
@@ -1366,43 +1575,56 @@ FOOTER
   }
 
   &__links {
-    @include flex(row, space-evenly, stretch);
+    @include grid(25em);
+    gap: 5em;
+    width: 100%;
+
+    @media (max-width: 670px) {
+      @include flex(column);
+    }
 
     &__link {
       @include flex(column, flex-start);
       width: 100%;
 
+      @media (max-width: 670px) {
+        align-items: flex-start;
+      }
+
       & > * {
-        // width: 100%;
+        width: 140px;
       }
 
       &__header {
-        font-size: 2.4rem;
+        font-family: cursive;
+        font-size: 2.2rem;
+        font-weight: 600;
         color: $black;
         padding-block: 0.4em;
       }
 
       &__link-wrapper {
         @include flex(column, flex-start, flex-start);
+        gap: 0.7em;
 
         .footer-links {
           @include flex(row);
+
+          &__icon {
+            color: #64af76;
+            font-size: 1.4rem;
+          }
         }
 
         &__link {
           display: block;
           font-size: 1.7rem;
           color: $light-color;
-          padding-block: 0.4em;
+          padding: 0.2em 0 0.2em 0.4em;
           cursor: pointer;
-          padding-left: 0.4em;
-          min-width: 130px;
 
           &:hover {
             padding-left: 0.6em;
-          }
-
-          &:hover {
             color: $green;
           }
         }
@@ -1411,9 +1633,14 @@ FOOTER
   }
 
   &__social {
-    @include flex(row);
+    @include flex(row, space-evenly, flex-start);
+    // flex-wrap: wrap;
     gap: 2em;
     padding-block: 6em;
+
+    @media (max-width: 252px) {
+      gap: 1em;
+    }
 
     &__links {
       @include flex();
@@ -1425,14 +1652,14 @@ FOOTER
       border-radius: 0.5em;
       outline: none;
       cursor: pointer;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
       background-color: $green;
 
-      // @media (max-width: 700px) {
-      //   height: 3.2em;
-      //   width: 3.2em;
-      //   line-height: 3.2em;
-      // }
+      @media (max-width: 300px) {
+        height: 3.1em;
+        width: 3.1em;
+        line-height: 3.1em;
+      }
 
       &:hover {
         background-color: $black;

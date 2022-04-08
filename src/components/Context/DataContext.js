@@ -29,7 +29,6 @@ export const DataProvider = ({ children }) => {
   const [viewSearchedItem, setViewSearchedItem] = useState(false);
   const [viewMenu, setViewMenu] = useState(false);
   const [viewCart, setViewCart] = useState(false);
-  const [viewSearchInput, setViewSearchInput] = useState(false);
   const [viewForm, setViewForm] = useState(false);
   const [toggleFormClass, setToggleFormClass] = useState(false);
 
@@ -138,8 +137,6 @@ export const DataProvider = ({ children }) => {
         setViewAllPages,
         viewMenu,
         setViewMenu,
-        viewSearchInput,
-        setViewSearchInput,
         viewForm,
         setViewForm,
         toggleFormClass,

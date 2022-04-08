@@ -7,11 +7,7 @@ export const HeaderSearchMobile = () => {
 
   return (
     <form
-      className={
-        viewSearchInput
-          ? "header__search-form__mobile"
-          : "invisible"
-      }
+      className={viewSearchInput ? "header__search-form__mobile" : "invisible"}
     >
       <input
         className="header__search-form__mobile__input"

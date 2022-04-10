@@ -9,7 +9,7 @@ import { SearchedItems } from "./components/SearchedItems/SearchedItems";
 import { AllPages } from "./components/AllPages";
 
 function App() {
-  useEffect(() => window.scrollTo(0, 0), [null]);
+  useEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <div className="container">

@@ -7,6 +7,7 @@ export const HeaderUser = () => {
     viewForm,
     setViewForm,
     setViewCart,
+    setViewSearchInput,
     setViewAllPages,
     setViewSearchedItem,
     setViewMenu,
@@ -18,6 +19,7 @@ export const HeaderUser = () => {
     setViewCart(false);
     setViewForm(false);
     setViewSearchedItem(false);
+    setViewSearchInput(false);
 
     if (viewForm) setViewAllPages(true);
     else setViewForm(true);

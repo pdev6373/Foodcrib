@@ -11,7 +11,7 @@ export const AllPages = () => {
   const { viewAllPages } = useContext(DataContext);
 
   return (
-    <div className={!viewAllPages && "invisible"}>
+    <div className={!viewAllPages ? "invisible" : "all-pages"}>
       <Home />
       <Menu />
       <About />

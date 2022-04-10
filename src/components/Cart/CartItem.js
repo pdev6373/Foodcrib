@@ -24,7 +24,7 @@ export const CartItem = ({ id, name, img, currentPrice }) => {
   };
 
   const handleClick = () => {
-    const newCartItems = cartItems.filter((cartItem) => cartItem.id != id);
+    const newCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
     const newPrice =
       Math.round((totalAmount - currentPrice + Number.EPSILON) * 100) / 100;
 
@@ -39,13 +39,17 @@ export const CartItem = ({ id, name, img, currentPrice }) => {
       <FaTimes onClick={handleClick} className="delete" />
 
       <div className="cart__body__items__item__img-wrapper">
-        <img className="cart__body__items__item__img-wrapper__img" src={img} />
+        <img
+          className="cart__body__items__item__img-wrapper__img"
+          src={img}
+          alt="product"
+        />
       </div>
 
       <div className="cart__body__items__item__details">
         <h3 className="cart__body__items__item__details__name">{name}</h3>
         <div className="cart__body__items__item__details__quantity">
-          <label for="quantity">quantity</label>
+          <label htmlFor="quantity">quantity</label>
           <input
             id="quantity"
             type="number"

@@ -1,5 +1,5 @@
 import React from "react";
 
 export const HomeImg = ({ img }) => {
-  return <img className="home__img" src={img} />;
+  return <img className="home__img" src={img} alt="home banner" />;
 };

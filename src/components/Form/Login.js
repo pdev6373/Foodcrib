@@ -19,7 +19,7 @@ export const Login = () => {
           className="login-form__remember__box"
           type="checkbox"
         />
-        <label className="login-form__remember" for="login-form__remember">
+        <label className="login-form__remember" htmlFor="login-form__remember">
           Remember me
         </label>
       </div>

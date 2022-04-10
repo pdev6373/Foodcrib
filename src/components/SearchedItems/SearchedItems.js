@@ -13,6 +13,8 @@ export const SearchedItems = () => {
     searchValue,
     setViewForm,
     setViewCart,
+    setViewMenu,
+    setViewSearchInput,
   } = useContext(DataContext);
 
   useEffect(() => window.scrollTo(0, 0), [viewSearchedItem]);
@@ -27,6 +29,7 @@ export const SearchedItems = () => {
     if (filteredItems.length) {
       return filteredItems.map((menuItem) => (
         <MenuItems
+          key={menuItem.name}
           name={menuItem.name}
           img={menuItem.img}
           currentPrice={menuItem.currentPrice}
@@ -43,9 +46,11 @@ export const SearchedItems = () => {
       <FaTimes
         onClick={() => {
           setViewAllPages(true);
-          setViewSearchedItem(false);
           setViewForm(false);
           setViewCart(false);
+          setViewMenu(false);
+          setViewSearchedItem(false);
+          setViewSearchInput(false);
         }}
         className="delete"
       />

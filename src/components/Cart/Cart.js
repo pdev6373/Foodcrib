@@ -10,7 +10,7 @@ export const Cart = () => {
   useEffect(() => window.scrollTo(0, 0), [viewCart]);
 
   const returnValue =
-    cartItems.length == 0 ? (
+    cartItems.length === 0 ? (
       <section
         className={viewCart ? "cart-wrapper cart-wrapper--none" : "invisible"}
       >

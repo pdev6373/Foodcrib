@@ -27,6 +27,7 @@ export const DataProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const [viewSearchedItem, setViewSearchedItem] = useState(false);
+  const [viewSearchInput, setViewSearchInput] = useState(false);
   const [viewMenu, setViewMenu] = useState(false);
   const [viewCart, setViewCart] = useState(false);
   const [viewForm, setViewForm] = useState(false);
@@ -122,6 +123,8 @@ export const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        viewSearchInput,
+        setViewSearchInput,
         viewSearchedItem,
         setViewSearchedItem,
         menuItems,

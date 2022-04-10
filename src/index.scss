@@ -67,10 +67,14 @@ html {
   color: $black;
 
   @media (max-width: 920px) {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   @media (max-width: 400px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 300px) {
     font-size: 2.5rem;
   }
 }
@@ -181,14 +185,6 @@ HEADER
   width: 100%;
   z-index: 30;
 
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
-
   @media (max-width: 400px) {
     flex-direction: column;
     gap: 2em;
@@ -245,21 +241,6 @@ HEADER
     @media (max-width: 240px) {
       gap: 1.5em;
     }
-
-    // @media (max-width: 370px) {
-    //   width: 100%;
-    //   gap: 3em;
-    //   justify-content: space-between;
-    // }
-
-    // @media (max-width: 270px) {
-    //   flex-wrap: wrap;
-    // }
-
-    // @media (max-width: 160px) {
-    //   flex-wrap: nowrap;
-    //   flex-direction: column;
-    // }
   }
 
   &__btns {
@@ -288,7 +269,7 @@ HEADER
       line-height: 3.2em;
     }
 
-    @media (max-width: 260px) {
+    @media (max-width: 270px) {
       height: 3em;
       width: 3em;
       line-height: 3em;
@@ -383,6 +364,10 @@ HEADER
       box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
       background-color: $light-bg;
 
+      &--current {
+        background-color: $green;
+      }
+
       @media (max-width: 700px) {
         height: 3em;
         width: 3em;
@@ -396,7 +381,7 @@ HEADER
         line-height: 3.2em;
       }
 
-      @media (max-width: 260px) {
+      @media (max-width: 270px) {
         height: 3em;
         width: 3em;
         line-height: 3em;
@@ -421,7 +406,7 @@ HEADER
   &__search-form__mobile {
     @include flex(row, space-between, stretch);
     position: absolute;
-    top: 100px;
+    top: 120px;
     left: 3%;
     right: 3%;
     border-radius: 100px;
@@ -429,19 +414,37 @@ HEADER
     overflow: hidden;
     box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
 
-    // @media (max-width: 1060px) {
-    //   left: 5rem;
-    //   right: 5rem;
-    // }
+    @media (max-width: 750px) {
+      left: 3rem;
+      right: 3rem;
+    }
 
-    // @media (max-width: 700px) {
-    //   left: 2rem;
-    //   right: 2rem;
-    // }
+    @media (max-width: 440px) {
+      left: 2rem;
+      right: 2rem;
+    }
 
-    // @media (max-width: 370px) {
-    //   top: 130px;
-    // }
+    @media (max-width: 400px) {
+      top: 150px;
+    }
+
+    @media (max-width: 350px) {
+      left: 1.3rem;
+      right: 1.3rem;
+    }
+
+    @media (max-width: 335px) {
+      @include flex(column, flex-start);
+      gap: 0.7em;
+      border-radius: 0;
+      background-color: $white;
+      box-shadow: none;
+    }
+
+    @media (max-width: 230px) {
+      left: 1rem;
+      right: 1rem;
+    }
 
     &__input {
       flex-grow: 1;
@@ -451,7 +454,18 @@ HEADER
       font-size: 1.6rem;
       padding-left: 1.5em;
       color: $light-color;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
+
+      @media (max-width: 335px) {
+        width: 100%;
+        padding: 0.8em;
+        border-radius: 30px;
+      }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+        -webkit-appearance: none;
+      }
     }
 
     &__button {
@@ -463,8 +477,14 @@ HEADER
       border: none;
       outline: none;
       cursor: pointer;
-      box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
+      box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
       background-color: $light-bg;
+
+      @media (max-width: 335px) {
+        padding: 1em;
+        width: 90px;
+        border-radius: 10px;
+      }
 
       &:hover {
         color: $white;
@@ -491,10 +511,6 @@ HEADER NAV MOBILE
   background-color: $white;
   z-index: 5;
 
-  // @media (max-width: 370px) {
-  //   top: 120px;
-  // }
-
   &__content {
     position: absolute;
     top: 120px;
@@ -508,9 +524,19 @@ HEADER NAV MOBILE
     border: 2px solid rgba(102, 102, 102, 0.196);
     width: 90%;
 
+    @media (max-width: 400px) {
+      top: 160px;
+    }
+
     .header__nav__list {
       @include flex(column, flex-start);
       gap: 0;
+
+      .active {
+        color: $white;
+        background-color: $green;
+        transition: 0.12s linear;
+      }
 
       &__link {
         width: 100%;
@@ -527,8 +553,13 @@ HEADER NAV MOBILE
         width: 100%;
         border-bottom: 2px solid rgba(102, 102, 102, 0.196);
 
+        @media (max-width: 400px) {
+          font-size: 1.6rem;
+        }
+
         &:hover {
-          border-bottom: 2px solid $green;
+          color: $white;
+          background-color: $green;
           transition: 0.12s linear;
         }
       }
@@ -968,8 +999,28 @@ SearchedItems
   margin-block: 2em 3em;
   border: 2px solid rgba(102, 102, 102, 0.196);
 
+  @media (max-width: 700px) {
+    margin-top: 9em;
+  }
+
+  @media (max-width: 400px) {
+    margin-top: 10em;
+  }
+
+  @media (max-width: 335px) {
+    margin-top: 13em;
+  }
+
   .delete {
     font-size: 3rem;
+
+    @media (max-width: 1000px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 2.3rem;
+    }
   }
 
   .section-header {
@@ -979,6 +1030,23 @@ SearchedItems
     width: 100%;
     border-bottom: 2px solid rgba(102, 102, 102, 0.196);
     background-color: $white;
+
+    @media (max-width: 1000px) {
+      font-size: 2.2rem;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 335px) {
+      text-align: left;
+      padding-left: 1em;
+    }
+
+    @media (max-width: 260px) {
+      padding-left: 0.5em;
+    }
   }
 
   .none {
@@ -987,37 +1055,52 @@ SearchedItems
     text-align: center;
     color: #666;
     text-shadow: 7px 7px 7px #d1d9e6, -7px -7px 7px #f9f9f9;
+
+    @media (max-width: 1000px) {
+      font-size: 2.2rem;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 2rem;
+    }
   }
 
   .menu {
-    @include flex(row, flex-start, flex-start);
-    gap: 0em;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-block: 2em;
+    @include grid(24em);
+    align-items: stretch;
+    padding: 2em;
+    margin: 0;
     overflow: hidden;
     background-color: $white;
-    padding: 0;
+    width: 100%;
+
+    @media (max-width: 350px) {
+      @include grid(19em);
+    }
 
     &__empty {
       font-size: 2.6rem;
       margin-inline: auto;
       color: #666;
       text-shadow: 7px 7px 7px #d1d9e6, -7px -7px 7px #f9f9f9;
+
+      @media (max-width: 1000px) {
+        font-size: 2.2rem;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 2rem;
+      }
     }
 
     &__items {
       @include flex(column, flex-start);
       padding-bottom: 4em;
-      width: 22%;
-      min-height: 460px;
       text-align: center;
       background-color: $white;
       border-radius: 1em;
-      box-shadow: 6px 6px 6px #d1d9e6, -6px -6px 6px #f9f9f9;
-      margin-inline: 1.5%;
-      margin-bottom: 5em;
       overflow: hidden;
+      box-shadow: 6px 6px 6px #d1d9e6, -6px -6px 6px #f9f9f9;
 
       &__img {
         float: left;
@@ -1035,12 +1118,21 @@ SearchedItems
         margin-top: 1em;
         padding-inline: 1em;
         text-transform: capitalize;
+        color: $black;
+
+        @media (max-width: 400px) {
+          font-size: 1.9rem;
+        }
       }
 
       &__price {
-        padding: 1.75em;
+        margin: 1.75em;
         @include flex();
         gap: 1em;
+
+        & > * {
+          height: 100%;
+        }
 
         &__current {
           font-size: 1.6rem;
@@ -1073,26 +1165,10 @@ HOME
     margin-top: 4em;
   }
 
-  // @media (max-width: 1080px) {
-  //   margin-top: 2em;
-  // }
-
-  // @media (max-width: 1030px) {
-  //   margin-top: 3.6em;
-  // }
-
   @media (max-width: 930px) {
     flex-direction: column-reverse;
     margin-top: 0;
   }
-
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
 
   & > * {
     width: 50%;
@@ -1119,7 +1195,7 @@ HOME
       padding-inline: 1em;
     }
 
-    @media (max-width: 302px) {
+    @media (max-width: 377px) {
       padding-inline: 0.2em;
     }
 
@@ -1139,32 +1215,28 @@ HOME
         font-size: 3.5rem;
       }
 
-      // @media (max-width: 1080px) {
-      //   font-size: 3.5rem;
-      // }
-
       @media (max-width: 930px) {
         font-size: 4rem;
       }
 
-      @media (max-width: 740px) {
-        font-size: 3.4rem;
+      @media (max-width: 762px) {
+        font-size: clamp(1rem, 5.2vw, 5rem);
       }
 
-      @media (max-width: 520px) {
-        font-size: 3rem;
+      @media (max-width: 500px) {
+        font-size: clamp(1rem, 6.3vw, 5rem);
       }
 
-      @media (max-width: 450px) {
-        font-size: 2.6rem;
+      @media (max-width: 440px) {
+        font-size: clamp(2.5rem, 6.9vw, 5rem);
       }
 
-      @media (max-width: 340px) {
-        font-size: 2.3rem;
+      @media (max-width: 323px) {
+        font-size: clamp(2rem, 9.5vw, 5rem);
       }
 
-      @media (max-width: 284px) {
-        font-size: 2.5rem;
+      @media (max-width: 250px) {
+        font-size: clamp(2rem, 10vw, 5rem);
       }
     }
 
@@ -1182,12 +1254,15 @@ HOME
       @media (max-width: 1080px) {
         font-size: 1.5rem;
       }
-    }
-  }
 
-  &__img {
-    background-blend-mode: darken;
-    // height: 500px;
+      @media (max-width: 1080px) {
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 520px) {
+        font-size: 1.3rem;
+      }
+    }
   }
 }
 
@@ -1204,12 +1279,8 @@ MENU
     @include grid(24em);
     width: 100%;
 
-    // @media (max-width: 400px) {
-    //   @include flex(column, flex-start);
-    // }
-
     @media (max-width: 350px) {
-      @include grid(20em);
+      @include grid(19em);
     }
 
     .menu__items {
@@ -1237,6 +1308,11 @@ MENU
         margin-top: 1em;
         padding-inline: 1em;
         text-transform: capitalize;
+        color: $black;
+
+        @media (max-width: 400px) {
+          font-size: 1.9rem;
+        }
       }
 
       &__price {
@@ -1272,22 +1348,13 @@ ABOUT
   width: 100%;
   padding-block: 0 18em;
 
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
-
   &__body {
     @include flex();
     gap: 3em;
 
     @media (max-width: 930px) {
       flex-direction: column;
-      // margin-top: 0;
-      // padding-inline: 5rem;
+      margin-top: 1em;
     }
 
     & > * {
@@ -1307,6 +1374,10 @@ ABOUT
         font-size: 3.5rem;
         margin-bottom: 0.6em;
         color: $black;
+
+        @media (max-width: 400px) {
+          font-size: 3rem;
+        }
       }
 
       &__text {
@@ -1329,10 +1400,6 @@ ABOUT
         @include flex(row, space-between, flex-start);
         flex-wrap: wrap;
         width: 100%;
-
-        // @media (max-width: 370px) {
-        //   flex-direction: column;
-        // }
 
         &__details {
           @include flex();
@@ -1371,20 +1438,9 @@ BLOG
   width: 100%;
   padding-block: 0 18em;
 
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
-
   &__posts {
-    // @include flex(row, center, stretch);
     @include grid(29em);
     width: 100%;
-    // flex-wrap: wrap;
-    // gap: 2em;
 
     @media (max-width: 400px) {
       @include flex(column, flex-start);
@@ -1394,9 +1450,11 @@ BLOG
       background-color: $light-bg;
       border-radius: 10px;
       overflow: hidden;
-      // padding: 1em;
-      // box-shadow: inset 2px 2px 3px $white, inset -2px -2px 3px #dadada;
       box-shadow: 6px 6px 6px #d1d9e6, -6px -6px 6px #f9f9f9;
+
+      @media (max-width: 400px) {
+        width: 100%;
+      }
 
       &__img-wrapper {
         position: relative;
@@ -1442,9 +1500,13 @@ BLOG
         padding: 0 1.4rem 1.8em;
 
         &__title {
-          font-size: 2rem;
+          font-size: 2.1rem;
           text-transform: capitalize;
           color: $black;
+
+          @media (max-width: 400px) {
+            font-size: 2rem;
+          }
         }
 
         &__text {
@@ -1456,6 +1518,10 @@ BLOG
 
         &__link {
           text-decoration: none;
+
+          @media (max-width: 340px) {
+            font-size: 1.15rem;
+          }
         }
       }
     }
@@ -1469,24 +1535,6 @@ FOOTER
   width: 100%;
   text-transform: capitalize;
 
-  // @media (max-width: 1060px) {
-  //   padding-inline: 5rem;
-  // }
-
-  // @media (max-width: 700px) {
-  //   padding-inline: 2rem;
-  // }
-
-  .section-header {
-    // @media (max-width: 920px) {
-    //   font-size: 3rem;
-    // }
-
-    @media (max-width: 300px) {
-      font-size: 2rem;
-    }
-  }
-
   &__newsletter {
     @include flex(column);
     gap: 4em;
@@ -1498,19 +1546,15 @@ FOOTER
       @include flex(row, space-between, stretch);
       border-radius: 100px;
       width: 50%;
-      // max-width: 700px;
-      // margin: 2em auto 1em;
       background-color: $light-bg;
-      // min-width: 400px;
       overflow: hidden;
       box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
-      // margin-right: 3em;
 
       @media (max-width: 1120px) {
         width: 70%;
       }
 
-      @media (max-width: 930px) {
+      @media (max-width: 1000px) {
         width: 90%;
       }
 
@@ -1518,7 +1562,7 @@ FOOTER
         width: 100%;
       }
 
-      @media (max-width: 315px) {
+      @media (max-width: 385px) {
         flex-direction: column;
         gap: 1em;
         border-radius: 20px;
@@ -1526,13 +1570,9 @@ FOOTER
         box-shadow: none;
       }
 
-      @media (max-width: 215px) {
+      @media (max-width: 270px) {
         border-radius: 0;
       }
-
-      // @media (max-width: 1180px) {
-      //   margin-right: 0;
-      // }
 
       &__email {
         font-size: 1.6rem;
@@ -1546,16 +1586,12 @@ FOOTER
         box-shadow: inset 1px 1px 2px $white, inset -1px -1px 2px #dadada;
         background-color: $light-bg;
 
-        @media (max-width: 350px) {
-          padding-left: 0.8em;
-        }
-
-        @media (max-width: 315px) {
+        @media (max-width: 385px) {
           height: 3em;
           border-radius: 10px 0 0 10px;
         }
 
-        @media (max-width: 215px) {
+        @media (max-width: 270px) {
           font-size: 1.4rem;
           border-radius: 0;
         }
@@ -1583,68 +1619,21 @@ FOOTER
         }
 
         @media (max-width: 500px) {
+          font-size: 1.5rem;
+          padding-inline: 1em;
           height: 2.8em;
         }
 
-        @media (max-width: 350px) {
-          font-size: 1.4rem;
-        }
-
-        @media (max-width: 315px) {
+        @media (max-width: 385px) {
           font-size: 1.6rem;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.07em;
         }
-
-        // @media (max-width: 700px) {
-        //   height: 3em;
-        //   width: 3em;
-        //   line-height: 3em;
-        //   border-radius: 0.5em;
-        // }
 
         &:hover {
           background-color: $black;
         }
-
-        &__icon {
-          font-size: 2rem;
-          transform: rotate(-90deg);
-
-          // @media (max-width: 700px) {
-          //   transform: rotate(0);
-          // }
-        }
       }
     }
-
-    // &__form {
-    //   @include flex();
-    //   max-width: 700px;
-    //   margin: 2em auto 1em;
-    //   border-radius: 0.5em;
-    //   overflow: hidden;
-
-    //   &__email {
-    //     font-size: 1.6rem;
-    //     height: 100%;
-    //     width: 100%;
-    //     padding: 1em 1.2em;
-    //     color: $black;
-    //     text-transform: none;
-    //   }
-
-    //   &__submit {
-    //     padding: 0 2rem;
-    //     font-size: 1.6rem;
-    //     color: $white;
-    //     background-color: $green;
-    //     cursor: pointer;
-
-    //     &:hover {
-    //       background-color: $black;
-    //     }
-    //   }
-    // }
   }
 
   &__links {
@@ -1707,11 +1696,10 @@ FOOTER
 
   &__social {
     @include flex(row, center, flex-start);
-    // flex-wrap: wrap;
     gap: 2em;
     padding-block: 6em;
 
-    @media (max-width: 252px) {
+    @media (max-width: 270px) {
       gap: 1em;
     }
 

@@ -47,6 +47,7 @@ export const Footer = () => {
       <div className="footer__links">
         {links.map((link) => (
           <FooterLinks
+            key={link.header}
             header={link.header}
             links={link.links}
             needIcon={link.needIcon}

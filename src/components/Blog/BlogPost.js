@@ -5,7 +5,11 @@ export const BlogPost = ({ title, text, img, date, link }) => {
   return (
     <div className="blog__post">
       <div className="blog__post__img-wrapper">
-        <img className="blog__post__img-wrapper__img" src={img} />
+        <img
+          className="blog__post__img-wrapper__img"
+          src={img}
+          alt="blog post"
+        />
         <h3 className="blog__post__img-wrapper__date">
           <FaCalendar
             style={{
@@ -19,7 +23,12 @@ export const BlogPost = ({ title, text, img, date, link }) => {
       <div className="blog__post__content">
         <h3 className="blog__post__content__title">{title}</h3>
         <p className="blog__post__content__text">{text}</p>
-        <a className="blog__post__content__link" target="_blank" href={link}>
+        <a
+          className="blog__post__content__link"
+          target="_blank"
+          href={link}
+          rel="noreferrer"
+        >
           Read More
         </a>
       </div>

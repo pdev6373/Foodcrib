@@ -34,7 +34,7 @@ export const About = () => {
       <SectionHeader text="About us" />
 
       <div className="about__body">
-        <img className="about__body__image" src={aboutImg} />
+        <img className="about__body__image" src={aboutImg} alt="about" />
 
         <div className="about__body__content">
           <p className="about__body__content__text">
@@ -48,7 +48,11 @@ export const About = () => {
 
           <div className="about__body__content__services">
             {services.map((service) => (
-              <AboutServices text={service.text} img={service.img} />
+              <AboutServices
+                key={service.text}
+                text={service.text}
+                img={service.img}
+              />
             ))}
           </div>
         </div>

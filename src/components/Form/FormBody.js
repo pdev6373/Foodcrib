@@ -49,7 +49,7 @@ export const FormBody = ({
         {hasAccount && (
           <div className="remember-me">
             <input id="remember-me" type="checkbox" value="Remember" />
-            <label for="remember-me">Remember me</label>
+            <label htmlFor="remember-me">Remember me</label>
           </div>
         )}
         <button onClick={e => e.preventDefault()} className="form-container__form__button submit">

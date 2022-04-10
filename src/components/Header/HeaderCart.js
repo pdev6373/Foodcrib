@@ -12,6 +12,7 @@ export const HeaderCart = () => {
     setViewMenu,
     cartItems,
     setTotalAmount,
+    setViewSearchInput,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -32,9 +33,9 @@ export const HeaderCart = () => {
     setViewCart(false);
     setViewForm(false);
     setViewSearchedItem(false);
+    setViewSearchInput(false);
 
-    if (viewCart) setViewAllPages(true);
-    else setViewCart(true);
+    viewCart ? setViewAllPages(true) : setViewCart(true);
   };
 
   return (

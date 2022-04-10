@@ -6,6 +6,7 @@ import useWindowDimension from "../../hooks/useWindowDimensions";
 export const HeaderSearch = () => {
   const {
     viewSearchInput,
+    viewSearchedItem,
     setViewSearchInput,
     setViewMenu,
     searchValue,
@@ -15,22 +16,22 @@ export const HeaderSearch = () => {
     setViewForm,
     setViewCart,
   } = useContext(DataContext);
+
   const { width } = useWindowDimension();
+
+  width > 700 && !viewSearchedItem && setViewAllPages(true);
 
   const handleToggle = (e) => {
     e.preventDefault();
 
-    // setViewAllPages(false);
-    // setViewMenu(false);
-    // setViewCart(false);
-    // setViewForm(false);
-    // setViewSearchedItem(false);
-
-    // if (viewForm) setViewAllPages(true);
-    // else setViewAllPages(true);
-
+    setViewAllPages(false);
     setViewMenu(false);
-    setViewSearchInput(!viewSearchInput);
+    setViewCart(false);
+    setViewForm(false);
+    setViewSearchedItem(false);
+    setViewSearchInput(false);
+
+    viewSearchInput ? setViewAllPages(true) : setViewSearchInput(true);
   };
 
   const handleChange = (e) => {
@@ -40,6 +41,7 @@ export const HeaderSearch = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setViewSearchedItem(true);
+    setViewSearchInput(true);
     setViewAllPages(false);
     setViewForm(false);
     setViewCart(false);
@@ -68,7 +70,7 @@ export const HeaderSearch = () => {
       <button
         className={
           viewSearchInput
-            ? "header__search-form__button current"
+            ? "header__search-form__button header__search-form__button--current"
             : "header__search-form__button"
         }
         type="submit"

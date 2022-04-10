@@ -11,7 +11,9 @@ export const FooterSocial = () => {
   return (
     <div className="footer__social">
       {links.map((link) => (
-        <button className="footer__social__links">{link}</button>
+        <button key={link} className="footer__social__links">
+          {link}
+        </button>
       ))}
     </div>
   );

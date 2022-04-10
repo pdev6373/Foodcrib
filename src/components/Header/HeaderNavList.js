@@ -20,7 +20,7 @@ export const HeaderNavList = () => {
   return (
     <ul className="header__nav__list">
       {links.map((link, linkIndex) =>
-        linkIndex == 0 ? (
+        linkIndex === 0 ? (
           <Link
             className="header__nav__list__link"
             spy={true}

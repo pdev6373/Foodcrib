@@ -8,6 +8,7 @@ export const HeaderMenu = () => {
     setViewMenu,
     setViewAllPages,
     setViewCart,
+    setViewSearchInput,
     setViewForm,
     setViewSearchedItem,
   } = useContext(DataContext);
@@ -18,6 +19,7 @@ export const HeaderMenu = () => {
     setViewCart(false);
     setViewForm(false);
     setViewSearchedItem(false);
+    setViewSearchInput(false);
 
     viewMenu ? setViewMenu(false) : setViewMenu(true);
   };

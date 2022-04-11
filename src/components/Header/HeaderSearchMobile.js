@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { FaUtensilSpoon } from "react-icons/fa";
 import useWindowDimension from "../../hooks/useWindowDimensions";
@@ -14,7 +14,9 @@ export const HeaderSearchMobile = () => {
 
   const { width } = useWindowDimension();
 
-  width <= 700 && viewSearchInput && setViewAllPages(false);
+  useEffect(() => {
+    width <= 700 && viewSearchInput && setViewAllPages(false);
+  }, [width, viewSearchInput, setViewAllPages]);
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);

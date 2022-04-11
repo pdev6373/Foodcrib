@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="container">
       <DataProvider>
-        <Header />
+        <Header /> 
         <Form />
         <Cart />
         <HeaderNavMobile />

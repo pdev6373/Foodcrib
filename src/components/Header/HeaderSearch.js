@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { FaUtensilSpoon, FaSearch } from "react-icons/fa";
 import useWindowDimension from "../../hooks/useWindowDimensions";
@@ -19,11 +19,12 @@ export const HeaderSearch = () => {
 
   const { width } = useWindowDimension();
 
-  width > 700 && !viewSearchedItem && setViewAllPages(true);
+  useEffect(() => {
+    width > 700 && !viewSearchedItem && setViewAllPages(true);
+  }, [width, viewSearchedItem, setViewAllPages]);
 
   const handleToggle = (e) => {
     e.preventDefault();
-
     setViewAllPages(false);
     setViewMenu(false);
     setViewCart(false);

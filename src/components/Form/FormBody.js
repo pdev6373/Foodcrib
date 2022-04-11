@@ -40,11 +40,13 @@ export const FormBody = ({
           className="form-container__form__input"
           type="text"
           placeholder="Email"
+          autoComplete="on"
         />
         <input
           className="form-container__form__input"
           type="password"
           placeholder="Password"
+          autoComplete="off"
         />
         {hasAccount && (
           <div className="remember-me">
@@ -52,14 +54,17 @@ export const FormBody = ({
             <label htmlFor="remember-me">Remember me</label>
           </div>
         )}
-        <button onClick={e => e.preventDefault()} className="form-container__form__button submit">
+        <button
+          onClick={(e) => e.preventDefault()}
+          className="form-container__form__button submit"
+        >
           {buttonText}
         </button>
 
         {hasAccount && (
           <span className="form-container__form__link">
             Forgot your password?
-            <a>Click here</a>
+            <a href="#void">Click here</a>
           </span>
         )}
       </form>

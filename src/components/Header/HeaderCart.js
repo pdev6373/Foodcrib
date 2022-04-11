@@ -25,15 +25,15 @@ export const HeaderCart = () => {
           100
       ) / 100
     );
-  }, []);
+  }, [setTotalAmount, cartItems]);
 
   const handleToggle = () => {
+    setViewSearchInput(false);
+    setViewSearchedItem(false);
     setViewAllPages(false);
     setViewMenu(false);
     setViewCart(false);
     setViewForm(false);
-    setViewSearchedItem(false);
-    setViewSearchInput(false);
 
     viewCart ? setViewAllPages(true) : setViewCart(true);
   };

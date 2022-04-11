@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FooterLinks } from "./FooterLinks";
 import { FooterNewsletter } from "./FooterNewsletter";
 import { FooterSocial } from "./FooterSocial";
+import useWindowDimension from "../../hooks/useWindowDimensions";
 
 export const Footer = () => {
+  const { width } = useWindowDimension();
+  const [contact, setContact] = useState(-40);
+
+  useEffect(() => {
+    if (width <= 350) setContact(550);
+    else if (width <= 385) setContact(540);
+    else if (width <= 440) setContact(500);
+    else if (width <= 670) setContact(490);
+    else if (width <= 946) setContact(200);
+    else setContact(-40);
+  }, [width]);
+
   const links = [
     {
       header: "our menu",
@@ -13,7 +26,7 @@ export const Footer = () => {
         { link: "pasta", offset: -150 },
         { link: "rice", offset: -150 },
         { link: "fries", offset: -40 },
-        { link: "and more...", offset: -40 },
+        { link: "and more...", offset: -150 },
       ],
       needIcon: false,
     },
@@ -24,7 +37,7 @@ export const Footer = () => {
         { link: "menu", offset: -150 },
         { link: "about", offset: -150 },
         { link: "blog", offset: -150 },
-        { link: "contact", offset: -40 },
+        { link: "contact", offset: contact },
       ],
       needIcon: true,
     },

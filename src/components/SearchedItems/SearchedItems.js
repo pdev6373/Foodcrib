@@ -29,7 +29,7 @@ export const SearchedItems = () => {
     if (filteredItems.length) {
       return filteredItems.map((menuItem) => (
         <MenuItems
-          key={menuItem.name}
+          key={menuItem.id}
           name={menuItem.name}
           img={menuItem.img}
           currentPrice={menuItem.currentPrice}

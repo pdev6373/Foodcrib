@@ -12,7 +12,7 @@ export const Menu = () => {
       <div className="menu__list">
         {menuItems.map((menuItem) => (
           <MenuItems
-          key={menuItem.name}
+          key={menuItem.id}
             name={menuItem.name}
             img={menuItem.img}
             currentPrice={menuItem.currentPrice}

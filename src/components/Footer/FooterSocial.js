@@ -10,8 +10,8 @@ export const FooterSocial = () => {
   let links = [<FaFacebookF />, <FaTwitter />, <FaLinkedin />, <FaPinterest />];
   return (
     <div className="footer__social">
-      {links.map((link) => (
-        <button key={link} className="footer__social__links">
+      {links.map((link, index) => (
+        <button key={index} className="footer__social__links">
           {link}
         </button>
       ))}

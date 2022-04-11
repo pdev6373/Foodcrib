@@ -9,12 +9,11 @@ export const FooterLinks = ({ header, links, needIcon }) => {
       <div className="footer__links__link__link-wrapper">
         {links.map((link) =>
           needIcon ? (
-            <div className="footer-links">
-              <FaArrowRight
-                className="footer-links__icon"
-              />
+            <div key={link.link} className="footer-links">
+              <FaArrowRight className="footer-links__icon" />
 
               <Link
+                key={link.link}
                 spy={true}
                 to={link.link}
                 smooth={true}
@@ -28,9 +27,12 @@ export const FooterLinks = ({ header, links, needIcon }) => {
               </Link>
             </div>
           ) : (
-            <a className="footer__links__link__link-wrapper__link">
+            <span
+              key={link.link}
+              className="footer__links__link__link-wrapper__link"
+            >
               {link.link}
-            </a>
+            </span>
           )
         )}
       </div>

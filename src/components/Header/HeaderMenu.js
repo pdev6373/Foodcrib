@@ -15,7 +15,6 @@ export const HeaderMenu = () => {
 
   const handleToggle = () => {
     setViewAllPages(true);
-    setViewMenu(false);
     setViewCart(false);
     setViewForm(false);
     setViewSearchedItem(false);

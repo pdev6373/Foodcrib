@@ -996,7 +996,7 @@ CART
       }
 
       @media (max-width: 400px) {
-        font-size: 2rem;
+        font-size: 2.15rem;
       }
     }
 
@@ -1187,7 +1187,7 @@ SearchedItems
     }
 
     @media (max-width: 400px) {
-      font-size: 2rem;
+      font-size: 2.15rem;
     }
 
     @media (max-width: 335px) {
@@ -1574,9 +1574,14 @@ ABOUT
             width: 100%;
           }
 
+          &__img {
+            width: 42px;
+          }
+
           &__text {
             font-size: 1.5rem;
             font-weight: bold;
+            color: #111;
           }
         }
       }

@@ -30,9 +30,13 @@ export const HeaderSearch = () => {
     setViewCart(false);
     setViewForm(false);
     setViewSearchedItem(false);
-    setViewSearchInput(false);
 
-    viewSearchInput ? setViewAllPages(true) : setViewSearchInput(true);
+    if (viewSearchInput) {
+      setViewSearchInput(false);
+      setViewAllPages(true);
+    } else {
+      setViewSearchInput(true);
+    }
   };
 
   const handleChange = (e) => {

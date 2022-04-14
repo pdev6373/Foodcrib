@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { FaShoppingBag } from "react-icons/fa";
 
@@ -11,31 +11,22 @@ export const HeaderCart = () => {
     setViewSearchedItem,
     setViewMenu,
     cartItems,
-    setTotalAmount,
     setViewSearchInput,
   } = useContext(DataContext);
-
-  useEffect(() => {
-    setTotalAmount(
-      Math.round(
-        (cartItems
-          .map((cartItem) => cartItem.currentPrice)
-          .reduce((priceOne, priceTwo) => priceOne + priceTwo, 0) +
-          Number.EPSILON) *
-          100
-      ) / 100
-    );
-  }, [setTotalAmount, cartItems]);
 
   const handleToggle = () => {
     setViewSearchInput(false);
     setViewSearchedItem(false);
     setViewAllPages(false);
     setViewMenu(false);
-    setViewCart(false);
     setViewForm(false);
 
-    viewCart ? setViewAllPages(true) : setViewCart(true);
+    if (viewCart) {
+      setViewCart(false);
+      setViewAllPages(true);
+    } else {
+      setViewCart(true);
+    }
   };
 
   return (

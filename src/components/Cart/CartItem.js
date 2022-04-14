@@ -3,34 +3,22 @@ import { DataContext } from "../Context/DataContext";
 import { FaTimes } from "react-icons/fa";
 
 export const CartItem = ({ id, name, img, currentPrice }) => {
-  const { cartItems, setCartItems, totalAmount, setTotalAmount } =
-    useContext(DataContext);
+  const { cartItems, setCartItems } = useContext(DataContext);
   const [itemsNo, setItemsNo] = useState(1);
 
   const handleChange = (e) => {
-    let newPrice;
-
-    if (e.target.value > itemsNo) {
-      newPrice =
-        Math.round((totalAmount + currentPrice + Number.EPSILON) * 100) / 100;
-    } else if (e.target.value < itemsNo) {
-      newPrice =
-        Math.round((totalAmount - currentPrice + Number.EPSILON) * 100) / 100;
-    }
-
-    setTotalAmount(newPrice);
-    sessionStorage.setItem("price", newPrice);
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id ? { ...item, itemsNo: Number(e.target.value) } : item
+      )
+    );
     setItemsNo(e.target.value);
   };
 
   const handleClick = () => {
-    const newCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
-    const newPrice =
-      Math.round((totalAmount - currentPrice + Number.EPSILON) * 100) / 100;
+    let newCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
 
-    setTotalAmount(newPrice);
     setCartItems(newCartItems);
-    sessionStorage.setItem("price", newPrice);
     sessionStorage.setItem("items", JSON.stringify(newCartItems));
   };
 

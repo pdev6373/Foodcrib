@@ -1,13 +1,26 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { CartItem } from "./CartItem";
 import { Button } from "../Button";
 import { SectionHeader } from "../SectionHeader";
 
 export const Cart = () => {
-  const { viewCart, cartItems, totalAmount } = useContext(DataContext);
+  const { viewCart, cartItems } = useContext(DataContext);
+  const [totalAmount, setTotalAmount] = useState(null);
 
   useEffect(() => window.scrollTo(0, 0), [viewCart]);
+
+  useEffect(() => {
+    setTotalAmount(
+      Math.round(
+        (cartItems
+          .map((cartItem) => cartItem.currentPrice * cartItem.itemsNo)
+          .reduce((priceOne, priceTwo) => priceOne + priceTwo, 0) +
+          Number.EPSILON) *
+          100
+      ) / 100
+    );
+  }, [cartItems]);
 
   const returnValue =
     cartItems.length === 0 ? (

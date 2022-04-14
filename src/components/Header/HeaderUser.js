@@ -17,12 +17,15 @@ export const HeaderUser = () => {
     setViewAllPages(false);
     setViewMenu(false);
     setViewCart(false);
-    setViewForm(false);
     setViewSearchedItem(false);
     setViewSearchInput(false);
 
-    if (viewForm) setViewAllPages(true);
-    else setViewForm(true);
+    if (viewForm) {
+      setViewForm(false);
+      setViewAllPages(true);
+    } else {
+      setViewForm(true);
+    }
   };
 
   return (

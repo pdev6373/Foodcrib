@@ -4,28 +4,28 @@ import { AboutServices } from "./AboutServices";
 import { Button } from "../Button";
 
 import aboutImg from "../../img/grilled-chicken-breast-and-vegetables.png";
-import img1 from "../../img/serv-1.png";
-import img2 from "../../img/serv-2.png";
-import img3 from "../../img/serv-3.png";
-import img4 from "../../img/serv-4.png";
+import img1 from "../../img/chat-support.svg";
+import img2 from "../../img/delivery-truck.svg";
+import img3 from "../../img/food.png";
+import img4 from "../../img/warranty.svg";
 
 export const About = () => {
   const services = [
     {
       img: img1,
-      text: "Fast Delivery",
+      text: "24/7 Support",
     },
     {
       img: img2,
-      text: "Fresh Food",
+      text: "Fast Delivery",
     },
     {
       img: img3,
-      text: "Quality Food",
+      text: "Fresh Food",
     },
     {
       img: img4,
-      text: "24/7 Support",
+      text: "Quality Food",
     },
   ];
 

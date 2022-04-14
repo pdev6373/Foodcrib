@@ -14,7 +14,7 @@ $box-shadow: 0 1em 1em rgba(0, 0, 0, 0.05);
   grid-template-columns: repeat(auto-fit, minmax($val, 0.5fr));
   gap: 2.5em;
 
-  @media (max-width: 900px) {
+  @media (max-width: 750px) {
     grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
   }
 }

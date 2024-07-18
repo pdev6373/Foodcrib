@@ -2,7 +2,6 @@ import React from "react";
 import { SectionHeader } from "../SectionHeader";
 import { AboutServices } from "./AboutServices";
 import { Button } from "../Button";
-
 import aboutImg from "../../img/grilled-chicken-breast-and-vegetables.png";
 import img1 from "../../img/food.png";
 import img2 from "../../img/delivery-truck.svg";
